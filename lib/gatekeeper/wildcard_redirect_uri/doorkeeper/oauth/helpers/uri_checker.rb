@@ -4,7 +4,7 @@ module Doorkeeper
       module URIChecker
         def self.matches?(url, client_url)
           url, client_url = as_uri(url), as_uri(client_url)
-          if url.query?
+          if url.query
             return true if url.to_s =~ /^#{Regexp.escape(client_url.to_s)}/
             false
           else
